@@ -19,6 +19,9 @@
 	<main>
 		<section class="container">
 			<h2>Meus pacientes</h2>
+
+			<label for="filtrar-tabela">Procurar</label>
+			<input type="text" name="filtro" id="filtrar-tabela" placeholder="Digite o nome:">
 			<table>
 				<thead>
 					<tr>
@@ -32,7 +35,7 @@
 				<tbody id="tabela-pacientes">
 					<tr class="paciente" id="primeiro-paciente">
 						<td class="info-nome">Paulo</td>
-						<td class="info-peso">1000</td>
+						<td class="info-peso">100</td>
 						<td class="info-altura">2.00</td>
 						<td class="info-gordura">10</td>
 						<td class="info-imc">0</td>
@@ -41,7 +44,7 @@
 					<tr class="paciente">
 						<td class="info-nome">João</td>
 						<td class="info-peso">80</td>
-						<td class="info-altura">6.72</td>
+						<td class="info-altura">2.72</td>
 						<td class="info-gordura">40</td>
 						<td class="info-imc">0</td>
 					</tr>
@@ -70,12 +73,14 @@
 					</tr>
 				</tbody>
 			</table>
+			<button id="buscar-pacientes" class="botao bto-principal">Adicionar</button>
 
 		</section>
 	</main>
 
 	<section class="container">
 		<h2 id="titulo-form">Adicionar novo paciente</h2>
+		<ul id="mensagens-erro"></ul>
 		<form id="form-adiciona">
 			<div class="grupo">
 				<label for="nome">Nome:</label>
@@ -103,6 +108,9 @@
 
 	<script src="js/calculaImc.js"></script>
 	<script src="js/form.js"></script>
+	<script src="js/remover-paciente.js"></script>
+	<script src="js/filtra.js"></script>
+	<script src="js/buscar-pacientes.js"></script>
 
 </body>
 
