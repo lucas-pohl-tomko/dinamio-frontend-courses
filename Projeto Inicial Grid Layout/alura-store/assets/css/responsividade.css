@@ -39,8 +39,11 @@
     }
 }
 
-@media screen and (max-width: 992px){
+@media screen and (max-width: 992px) and (min-width:768px){
 
+    .populares_conteudo{
+        flex-direction: row;
+    }
     .populares__card{
         grid-template-rows: 173px auto;
         margin-bottom: 3rem;
