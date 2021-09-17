@@ -1,0 +1,33 @@
+.imagem-carrossel{
+    object-fit: cover;
+    object-position: 0 70%;
+    height: 70vh;
+
+}
+
+.fonte-pacifico{
+    font-family: 'Pacifico', cursive;
+}
+
+.cor-vinho{
+    color: darkred!important;
+}
+
+.cor-background-vinho{
+    background-color: darkred;
+    color: white;
+}
+
+.borda-vinho{
+    border-color: darkred;
+}
+
+.card-imagem{
+    object-fit: cover;
+    object-position: 0 70%;
+    height: 30vh;
+}
+
+.card-largura{
+    width: 18rem;
+}
