@@ -1,17 +1,25 @@
 <template>
   <nav>
     <ul>
-      <li><router-link to="/">Home</router-link></li>
-      <li><router-link to="/cadastro">Cadastro</router-link></li>
+      <li v-for="rota of routes" :key="rota.name">
+        <router-link :to="rota.path ? rota.path : '/'">
+          {{ rota.name }}
+        </router-link>
+      </li>
     </ul>
   </nav>
 </template>
 
 <script>
+import { routes } from "../../../routes";
 export default {
-  props: ["rotas"],
   data() {
-    return {};
+    return {
+      routes: routes.filter((route) => route.menu),
+    };
+  },
+  created() {
+    console.log(routes);
   },
 };
 </script>

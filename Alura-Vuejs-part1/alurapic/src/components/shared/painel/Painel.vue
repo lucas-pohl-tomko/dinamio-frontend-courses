@@ -1,8 +1,7 @@
+
 <template>
   <div class="painel">
-    <h2 class="painel-titulo" v-on:dblclick="visivel = !visivel">
-      {{ titulo }}
-    </h2>
+    <h2 class="painel-titulo" @dblclick="visivel = !visivel">{{ titulo }}</h2>
     <transition name="painel-fade">
       <div class="painel-conteudo" v-show="visivel">
         <slot></slot>
@@ -14,6 +13,7 @@
 <script>
 export default {
   props: ["titulo"],
+
   data() {
     return {
       visivel: true,
@@ -23,8 +23,6 @@ export default {
 </script>
 
 <style scoped>
-/* estilo do painel */
-
 .painel {
   padding: 0 auto;
   border: solid 2px grey;
@@ -39,12 +37,11 @@ export default {
 
 .painel .painel-titulo {
   text-align: center;
-  border: solid 0.1rem;
+  border: solid 2px;
   background: lightblue;
-  margin: 0 0 0.5rem 0;
-  padding: 0.5rem;
+  margin: 0 0 15px 0;
+  padding: 10px;
   text-transform: uppercase;
-  font-size: 1rem;
 
   /* cut text if breaks line */
   overflow: hidden;
@@ -52,8 +49,8 @@ export default {
   text-overflow: ellipsis;
 }
 
-.painel {
-  box-shadow: 1px 2px 2px 1px;
+* {
+  box-shadow: 5px 5px 5px;
 }
 
 .painel-fade-enter,
@@ -63,7 +60,7 @@ export default {
 
 .painel-fade-enter-active,
 .painel-fade-leave-active {
-  transition: opacity 0.2s;
+  transition: opacity 0.4s;
 }
 
 .painel-conteudo {

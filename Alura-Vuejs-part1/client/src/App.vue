@@ -11,6 +11,13 @@
 import Menu from "./components/shared/menu/Menu.vue";
 export default {
   components: { "meu-menu": Menu },
+
+  data() {
+    return {};
+  },
+  created() {
+    console.log(routes);
+  },
 };
 </script>
 <style>
