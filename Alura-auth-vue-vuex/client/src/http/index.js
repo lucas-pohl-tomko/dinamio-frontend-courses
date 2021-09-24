@@ -1,4 +1,5 @@
 import axios from 'axios';
+import provider from '@/provider';
 
 const http = axios.create({
     baseURL: 'http://localhost:8000/',
@@ -9,7 +10,7 @@ const http = axios.create({
 });
 
 http.interceptors.request.use(function (config) {
-    const token = localStorage.getItem('token');
+    const token = provider.state.token;
     if (token) {
         config.headers.Authorization = `Bearer ${token}`;
     }
