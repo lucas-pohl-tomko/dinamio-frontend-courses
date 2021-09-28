@@ -2,9 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Gerentes from '../views/Gerentes.vue'
 import Home from '../views/Home.vue'
-import NovoUsuario from '../views/NovoUsuario.vue'
 import Login from '../views/Login.vue'
-import provider from '@/provider'
+import store from '../store'
 
 Vue.use(VueRouter)
 
@@ -12,26 +11,21 @@ const routes = [
   {
     path: '',
     name: 'home',
-    component: Home,
-    meta: {
-      publica: false
-    }
+    component: Home
   },
   {
     path: '/gerentes',
     name: 'gerentes',
-    component: Gerentes,
-    meta: {
-      publica: false
-    }
+    component: Gerentes
   },
   {
     path: '/cadastre-se',
     name: 'novo.usuario',
-    component: NovoUsuario,
+    component: () => import(/* webpackChunkName: "registrar" */ '../views/NovoUsuario.vue'),
     meta: {
       publica: true
     }
+
   },
   {
     path: '/login',
@@ -40,6 +34,7 @@ const routes = [
     meta: {
       publica: true
     }
+
   }
 ]
 
@@ -48,10 +43,13 @@ const router = new VueRouter({
 })
 
 router.beforeEach((routeTo, routeFrom, next) => {
-  if (!routeTo.meta.publica && !provider.state.token) {
-    return next({ path: '/login' })
+  if (!routeTo.meta.publica && !store.state.token) {
+    return next({
+      path:'/login'
+    });
   }
-  next()
+  next();
 })
+
 
 export default router

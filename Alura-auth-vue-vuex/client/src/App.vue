@@ -7,12 +7,10 @@
 
 <script>
 import BarraNavegacao from "@/components/BarraNavegacao";
+
 export default {
   components: {
-    BarraNavegacao,
-  },
+    BarraNavegacao
+  }
 };
 </script>
-
-<style>
-</style>

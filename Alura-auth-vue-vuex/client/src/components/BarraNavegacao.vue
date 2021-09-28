@@ -1,41 +1,31 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-bytebank">
     <a class="navbar-brand" href="#">ByteBank</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <BarraNavegacaoLogado v-if="usuarioEstaLogado" />
-      <BarraNavegacaoDeslogado v-else />
+    <div class="collapse navbar-collapse">
+      <BarraNavegacaoQuandoLogado v-if="usuarioEstaLogado" />
+      <BarraNavegacaoQuandoDeslogado v-else />
     </div>
   </nav>
 </template>
 
 <script>
-import BarraNavegacaoDeslogado from "./BarraNavegacaoDeslogado";
-import BarraNavegacaoLogado from "./BarraNavegacaoLogado";
+import BarraNavegacaoQuandoLogado from "./BarraNavegacaoQuandoLogado";
+import BarraNavegacaoQuandoDeslogado from "./BarraNavegacaoQuandoDeslogado";
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
-    BarraNavegacaoLogado,
-    BarraNavegacaoDeslogado,
+    BarraNavegacaoQuandoLogado,
+    BarraNavegacaoQuandoDeslogado
   },
   computed: {
-    usuarioEstaLogado() {
-      return Boolean(this.$store.state.token);
-    },
-  },
+    ...mapGetters(['usuarioEstaLogado'])
+  }
 };
 </script>
-
 <style>
 .navbar {
   background: #27ae60;

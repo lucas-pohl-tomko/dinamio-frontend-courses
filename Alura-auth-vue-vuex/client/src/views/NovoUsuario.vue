@@ -1,7 +1,7 @@
-<template>
+ <template>
   <div class="container">
-    <h1>Novo Usuário</h1>
-    <form @submit.prevent="enviarFormulario" action="">
+    <h1>Novo usuário</h1>
+    <form @submit.prevent="enviarFormulario">
       <div class="form-group">
         <label for="nome">Nome</label>
         <input type="text" class="form-control" v-model="usuario.nome" />
@@ -11,39 +11,32 @@
         <input type="email" class="form-control" v-model="usuario.email" />
       </div>
       <div class="form-group">
-        <label for="senha">Senhas</label>
+        <label for="senha">Senha</label>
         <input type="password" class="form-control" v-model="usuario.senha" />
       </div>
       <button class="btn btn-primary" type="submit">Salvar</button>
     </form>
   </div>
 </template>
-
-<script>
+ 
+ <script>
 export default {
-  data() {
+  data: function() {
     return {
       usuario: {
         nome: "",
         senha: "",
-        email: "",
-      },
+        email: ""
+      }
     };
   },
   methods: {
     enviarFormulario() {
-      console.log(this.usuario);
       this.$http
         .post("auth/register", this.usuario)
-        .then((resposta) => {
-          console.log(resposta);
-          this.$router.push({ name: "login" });
-        })
-        .catch((err) => console.log(err));
-    },
-  },
+        .then(resposta => console.log(resposta))
+        .catch(erro => console.log(erro))
+    }
+  }
 };
 </script>
-
-<style>
-</style>
