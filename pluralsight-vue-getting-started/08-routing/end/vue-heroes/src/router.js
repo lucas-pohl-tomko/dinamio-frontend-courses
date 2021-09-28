@@ -17,6 +17,7 @@ export default new Router({
     {
       path: '/heroes',
       name: 'heroes',
+      //Lazy loading
       component: () =>
         import(/* webpackChunkName: "bundle.heroes" */ './views/heroes.vue'),
     },
@@ -25,12 +26,14 @@ export default new Router({
       name: 'hero-detail',
       // props: true,
       props: parseProps,
+      //Lazy loading
       component: () =>
         import(/* webpackChunkName: "bundle.heroes" */ './views/hero-detail.vue'),
     },
     {
       path: '/about',
       name: 'about',
+      //Lazy loading
       component: () =>
         import(/* webpackChunkName: "bundle.about" */ './views/about.vue'),
     },

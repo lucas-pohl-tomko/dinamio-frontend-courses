@@ -26,7 +26,7 @@ const mutations = {
   },
   [GET_HEROES](state, heroes) {
     state.heroes = heroes;
-  },
+  }, 
   [DELETE_HERO](state, heroId) {
     state.heroes = [...state.heroes.filter(p => p.id !== heroId)];
   },
