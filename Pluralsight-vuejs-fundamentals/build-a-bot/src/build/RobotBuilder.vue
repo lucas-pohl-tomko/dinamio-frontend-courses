@@ -191,15 +191,17 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .part {
   position: relative;
   width: 165px;
   height: 165px;
   border: 3px solid #aaa;
 }
-.part img {
-  width: 165px;
+.part {
+  img {
+    width: 165px;
+  }
 }
 .top-row {
   display: flex;
