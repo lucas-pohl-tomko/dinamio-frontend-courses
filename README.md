@@ -1,4 +1,4 @@
-# Alura HTML - CSS - JavaScript - VueJS - IIS - NodeJS Courses
+# Alura and Pluralsight HTML - CSS - JavaScript - VueJS - IIS - NodeJS Courses
 📝 Alura Courses i'm doing for work. This is not orginized at all, and it's not supposed to be. I've followed the courses very faithfully so feel free to take a look if you're doing any of them. The names might not be accurate though lol 🙃
 
 ### Running :japanese_ogre:
