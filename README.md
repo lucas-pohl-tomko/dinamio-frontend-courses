@@ -1,4 +1,4 @@
-# Alura HTML - CSS - JavaScript - Vuejs - IIS Courses
+# Alura HTML - CSS - JavaScript - VueJS - IIS - NodeJS Courses
 Alura Courses i'm doing for work.
 
 ### Running :japanese_ogre:
