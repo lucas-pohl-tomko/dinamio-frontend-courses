@@ -17,9 +17,6 @@
         </div>
       </CollapsibleSection>
       <button class="add-to-cart" @click="addToCart()">Add to cart</button>
-      <br />
-      <br />
-      <button class="" @click="metodoTeste()">metodo teste</button>
     </div>
     <div class="top-row">
       <!-- <div class="robot-name">
@@ -56,25 +53,6 @@
         @partSelected="(part) => (selectedRobot.base = part)"
       />
     </div>
-    <div>
-      <h1>Cart</h1>
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Robot</th>
-            <th class="cost">Cost</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(robot, index) in cart" :key="index">
-            <td>{{ index }}</td>
-            <td>{{ robot.head.title }}</td>
-            <td class="cost">{{ robot.cost }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </div>
 </template>
 
@@ -86,10 +64,21 @@ import CollapsibleSection from '@/shared/CollapsibleSection.vue';
 
 export default {
   name: 'RobotBuilder',
+  beforeRouteLeave(to, from, next) {
+    if (this.addedToCart) {
+      next(true);
+    } else {
+      /* eslint no-alert: 0 */
+      /* eslint no-restricted-globals: 0 */
+      const response = confirm('You sure you want to leave?');
+      next(response);
+    }
+  },
+
   components: { PartSelector, CollapsibleSection },
   data() {
     return {
-      teste: { bla: 'Isto é uma string' },
+      addedToCart: false,
       availableParts,
       cart: [],
       selectedRobot: {
@@ -118,12 +107,8 @@ export default {
         + robot.rightArm.cost
         + robot.torso.cost
         + robot.base.cost;
-      this.cart.push({ ...robot, cost });
-      const bla = '123asdasd';
-      return bla;
-    },
-    metodoTeste() {
-      return console.log(this.addToCart());
+      this.$store.commit('addRobotToCart', { ...robot, cost });
+      this.addedToCart = true;
     },
   },
 };
@@ -239,15 +224,6 @@ export default {
   width: 210px;
   padding: 3px;
   font-size: 16px;
-}
-td,
-th {
-  text-align: left;
-  padding: 5px;
-  padding-right: 20px;
-}
-.cost {
-  text-align: right;
 }
 .sale-border {
   border: 3px solid lightcoral;
