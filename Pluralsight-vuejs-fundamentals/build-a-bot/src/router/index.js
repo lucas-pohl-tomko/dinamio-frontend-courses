@@ -1,6 +1,6 @@
 import {
   createRouter,
-  createWebHashHistory,
+  createWebHistory,
 } from 'vue-router';
 
 import HomePage from '@/home/HomePage.vue';
@@ -18,7 +18,7 @@ import ShoppingCart from '@/cart/ShoppingCart.vue';
 // import store from '../store';
 
 export default createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
