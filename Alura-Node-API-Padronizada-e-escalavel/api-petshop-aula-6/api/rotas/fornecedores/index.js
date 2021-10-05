@@ -31,10 +31,13 @@ roteador.post('/', async (requisicao, resposta, proximo) => {
     }
 })
 
+// Pegar um fornecedor especifico
 roteador.get('/:idFornecedor', async (requisicao, resposta, proximo) => {
     try {
+        // acessar id do fornecedor, pegando da url (params)
         const id = requisicao.params.idFornecedor
         const fornecedor = new Fornecedor({ id: id })
+
         await fornecedor.carregar()
         resposta.status(200)
         const serializador = new SerializadorFornecedor(
